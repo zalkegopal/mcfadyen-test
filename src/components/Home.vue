@@ -3,7 +3,8 @@
     <v-row>
       <v-col cols="4" class="left-pane"> <left-pane /> </v-col>
       <v-col cols="5" class="imagery"> <imagery /> </v-col>
-      <v-col cols="3"> <right-pane /></v-col>
+      <v-col cols="5" class="imagery-moblie"> <imagery-mobile /> </v-col>
+      <v-col cols="3" class="right-pane"> <right-pane /></v-col>
     </v-row>
     <v-container class="footer">
       <h3>A note from the editor</h3>
@@ -21,6 +22,7 @@
 import LeftPane from "./LeftPane.vue";
 import RightPane from "./RightPane.vue";
 import Imagery from "./Imagery.vue";
+import ImageryMobile from "./ImageryMobile.vue";
 
 export default {
   name: "Home",
@@ -28,6 +30,7 @@ export default {
     LeftPane,
     RightPane,
     Imagery,
+    ImageryMobile
   },
 };
 </script>
@@ -42,11 +45,33 @@ export default {
   .main-container {
     max-width: 1400px;
   }
+  .imagery-moblie {
+    display: none;
+  }
 }
 
 @media (min-width: 1264px) {
   .container {
     max-width: 1220px;
+  }
+  .imagery-moblie {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-pane,
+  .imagery {
+    display: none;
+  }
+
+  .right-pane {
+    max-width: 100%;
+  }
+
+  .imagery-moblie {
+    display: block;
+    max-width: 100%;
   }
 }
 
